@@ -40,7 +40,7 @@ Data in column[0] is wrangled by delimiter "_".
 
 Splitting data by "_" we create 14 columns that have methods to determine .wav file.
 
-End product of data wrangling is to convert 1793*2 into 128*14.
+End product of data wrangling is to convert 1793 * 2 into 128 * 14.
 
 ## Machine Learning Models ##
 * Logistic Regression
