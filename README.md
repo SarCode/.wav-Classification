@@ -35,6 +35,7 @@ Each class has 16 samples:
 
 
 ##Data Wrangling ##
+
 Data in column[0] is wrangled by delimiter "_".
 
 Splitting data by "_" we create 14 columns that have methods to determine .wav file.
