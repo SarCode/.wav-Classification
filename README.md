@@ -47,10 +47,10 @@ End product of data wrangling is to convert 1793 * 2 into 128 * 14.
   1. <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html>
 
 * Random Forest Classifier
- 2. <https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html>
+  2. <https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html>
  
 * SVC
- 3. <https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html>
+  3. <https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html>
 
 ## Performance Metric ##
 <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html>
