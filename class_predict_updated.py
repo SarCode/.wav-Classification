@@ -11,7 +11,7 @@ if not sys.warnoptions:
     warnings.simplefilter("ignore")
 
 
-DATA_FILE = 'data_svm_org_new.csv'
+DATA_FILE = 'data_svm_org_new_v2.csv'
 
 TRAINING_FILE_HAS_HEADER = True
 TESTING_FILE_HAS_HEADER = False
