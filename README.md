@@ -20,7 +20,7 @@ Execute:
 ## Improving Code
 The scripts create_dataset_from_original_file.py & predicted_using_created_dataset.py are for basic understanding of Data Wrangling and Pre-Processing.
 
-If you want higher accuracy and have great knowledge of python then execute only class_predict_updated.py.
+If you want higher accuracy and have knowledge of python then execute only class_predict_updated.py.
 
 
 ## Dataset ##
