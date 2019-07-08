@@ -65,14 +65,11 @@ Splitting data by "_" we create 14 columns that have methods to determine .wav f
 End product of data wrangling is to convert 1793 * 2 into 128 * 14.
 
 ## Machine Learning Models ##
-* Logistic Regression
-  * <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html>
+* [Logistic Regression](<https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html>)
 
-* Random Forest Classifier
-  * <https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html>
+* [Random Forest Classifier](<https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html>)
  
-* SVC
-  * <https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html>
+* [SVC](<https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html>)
 
 ## Performance Metric ##
-<https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html>
+[Accuracy Score](<https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html>)
