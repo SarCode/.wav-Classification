@@ -7,6 +7,7 @@ Classification of .wav audio file using methods for predicting interference like
 
 ## Libraries ##
 * Pandas
+* NumPy
 * sklearn
   * Pre-processing
   * Linear Model
@@ -14,15 +15,22 @@ Classification of .wav audio file using methods for predicting interference like
   * SVM
   * Metrics
   * Train Test Split
-  
+
+## Setup ##
+Requires Python 3. Install dependencies with:
+
+```
+pip install -r requirements.txt
+```
+
 ## To run ##
 Execute:
 
-* create_dataset_from_original_file.py
-* predicted_using_created_dataset.py
+* create_dataset_from_original_file.py (wrangles data_svm_org_new_v2.csv into dataset.csv)
+* predicting_using_created_dataset.py (trains/evaluates on dataset.csv)
 
 ## Improving Code
-The scripts create_dataset_from_original_file.py & predicted_using_created_dataset.py are for basic understanding of Data Wrangling and Pre-Processing.
+The scripts create_dataset_from_original_file.py & predicting_using_created_dataset.py are for basic understanding of Data Wrangling and Pre-Processing.
 
 If you want higher accuracy and have knowledge of python then execute only class_predict_updated.py.
 

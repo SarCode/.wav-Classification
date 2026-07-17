@@ -1,0 +1,28 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Generated/intermediate data produced by the scripts in this repo
+dataset.csv
+train*.csv
+test*.csv
+
+# Large or raw audio data
+*.wav
+*.mp3
+*.flac
+
+# OS/editor cruft
+.DS_Store
+.idea/
+.vscode/

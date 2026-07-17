@@ -24,14 +24,13 @@ for i in range(1792):
         column.append(col)
     
 dataset1=pd.DataFrame(columns=column)
-dataset1.fillna(0)
 
 
 for i in range(1792):
     a=list(X[i].split("_"))
     classe=a[0]+"_"+a[1]+"_"+a[2]+".wav"
-            
-    dataset1.set_value(i+1,'sample',classe)
+
+    dataset1.loc[i+1, 'sample']=classe
     
 dataset1=dataset1.drop_duplicates(keep='first')
     
@@ -50,7 +49,7 @@ for i in range(1792):
         col=a[3]+"_"+a[4]+"_"+lhs
         
     ind=dataset1.index[dataset1['sample'] == classe]
-    dataset1.set_value(ind,col,y[i])
+    dataset1.loc[ind,col]=y[i]
 
 dataset1=dataset1.reset_index()
 dataset1=dataset1.drop('index',axis=1)

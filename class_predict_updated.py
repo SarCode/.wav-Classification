@@ -18,7 +18,7 @@ TESTING_FILE_HAS_HEADER = False
 
 
 # METHOD INDICES
-NOISY = 'noisy'
+NOISY = 'unprocessed'
 KLT = 'klt'
 KLT_JABLOUN = 'klt_jabloun'
 STSA = 'stsa'
@@ -46,7 +46,6 @@ def getIndex (s):
 	if s not in CLASS_LABEL.keys():
 		class_index = class_index + 1
 		CLASS_LABEL[s] = class_index
-	#print ('Class ' + str(s) + ' Index : ' + str(CLASS_LABEL[s]) )
 	return CLASS_LABEL[s]
 
 
@@ -68,7 +67,6 @@ def splitData (dataFile, trainFile, testFile, testSamples):
 	csv.writer(open(trainFile, 'w', newline='')).writerows(train)
 	csv.writer(open(testFile, 'w', newline='')).writerows(test)
 
-	#return True
 
 def getSample (str):
 	smpl = re.findall(r'\w+|\W+', str)[0]
@@ -111,13 +109,11 @@ def process_data (file, has_header):
 		else:
 			training_raw[cls][sample][mthd] = line[1]
 		
-	#print (training_raw)
 	training_X = []
 	training_Y = []
 
 	for cls in training_raw.keys():
 		for sample in training_raw[cls].keys():
-			#print (cls + ' ' + sample + ' ' + str(training_raw[cls][sample]))
 			tmp = {}
 						
 			tmp[NOISY] = training_raw[cls][sample][NOISY]
@@ -135,7 +131,6 @@ def process_data (file, has_header):
 			tmp[SCALART] = training_raw[cls][sample][SCALART]
 			tmp[TSOUKALAS] = training_raw[cls][sample][TSOUKALAS]
 
-			#print (list(tmp.values()))
 			training_X.append(list(tmp.values()))
 			training_Y.append(cls)
 	return training_X, training_Y
@@ -146,7 +141,6 @@ bestPSamples = []
 for ratio in range(1, 8):
 
 	for testSamples in itertools.combinations(SAMPLE_NAMES, ratio):
-		#print (' '.join(testSamples))
 		splitData (DATA_FILE, 'train' + str(ratio) + '.csv', 'test' + str(ratio) + '.csv', testSamples)
 			
 		X, y = process_data ('train' + str(ratio) + '.csv', TRAINING_FILE_HAS_HEADER)		
@@ -161,7 +155,6 @@ for ratio in range(1, 8):
 		testing_X, testing_Y = process_data('test' + str(ratio) + '.csv', TESTING_FILE_HAS_HEADER)
 
 		results = clf.predict(testing_X)
-		#print (results)
 		
 		confusion_matrix = np.zeros( ( len(set(testing_Y)), len(set(testing_Y)) ) )
 
@@ -173,8 +166,6 @@ for ratio in range(1, 8):
 				wrong_prediction = wrong_prediction + 1
 
 
-		#print ('\nTesting Samples: ' + str(ratio) + '\nCorrect predictions: ' + str(right_prediction) + '\nIncorrect predictions: ' + str(wrong_prediction) + '\nAccuray: ' + str(right_prediction/(right_prediction + wrong_prediction)) + '\n')
-		#print(confusion_matrix)
 
 		ap = 0
 		ar = 0
@@ -199,16 +190,12 @@ for ratio in range(1, 8):
 							tn = tn + confusion_matrix[i][j]
 			p = tp/(tp+fp)
 			r = tp/(tp+fn)
-			#print ('Precision for label : ' + label + ' is : ' + str(p))
-			#print ('Recall for label : ' + label + ' is : ' + str(r))
 			
 			ap = ap + p
 			ar = ar + r
 		if bestP <= ap/len(set(testing_Y)):
 			bestP = ap/len(set(testing_Y))
 			bestPSamples = testSamples
-		#print ('Average P : ' + str(ap/len(set(testing_Y))))
-		#print ('Average R : ' + str(ar/len(set(testing_Y))))
 
 print('Best Precision: ' + str(bestP))
 print('Best Precision Samples: ' + ' '.join(bestPSamples))

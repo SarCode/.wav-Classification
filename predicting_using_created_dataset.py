@@ -15,13 +15,12 @@ y = dataset.iloc[:,0].values
 i=0
 for i in range(128):
     a=list(y[i].split("_"))
-    dataset=dataset.set_value(i,'sample',a[1]+"_"+a[2])
+    dataset.loc[i,'sample']=a[1]+"_"+a[2]
 
 #converting categorical data to Numerical
 from sklearn.preprocessing import LabelEncoder
 label_encoder = LabelEncoder()
-dataset.iloc[:,0] = label_encoder.fit_transform(dataset.iloc[:,0].values)
-y=dataset.iloc[:,0].values
+y=label_encoder.fit_transform(dataset.iloc[:,0].values)
 
 #splitting data in 80:20 ratio
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
